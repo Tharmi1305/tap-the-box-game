@@ -27,9 +27,13 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text("Game Screen"),
+        child: Container(
+          width: 100,
+          height: 100,
+          color: Colors.blue,
+        ),
       ),
     );
   }
