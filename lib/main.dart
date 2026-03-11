@@ -25,13 +25,18 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
+
+  int score = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: GestureDetector(
           onTap:(){
-            print("Box tapped!");
+            setState(() {
+              score++;
+            });
           } ,
           child: Container(
             width: 100,
