@@ -29,10 +29,15 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          color: Colors.blue,
+        child: GestureDetector(
+          onTap:(){
+            print("Box tapped!");
+          } ,
+          child: Container(
+            width: 100,
+            height: 100,
+            color: Colors.blue,
+          ),
         ),
       ),
     );
