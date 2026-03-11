@@ -12,11 +12,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Tap The Box Game',
-      home: const Scaffold(
-        body: Center(
-          child: Text("Game UI Coming soon"),
-        ),
-      ),
+      home: const GameScreen(),
     );
   }
 }
@@ -33,4 +29,6 @@ class GameScreen extends StatelessWidget {
     );
   }
 }
+
+
 
