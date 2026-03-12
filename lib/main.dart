@@ -32,19 +32,32 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: GestureDetector(
-          onTap:(){
-            setState(() {
-              score++;
-            });
-          } ,
-          child: Container(
-            width: 100,
-            height: 100,
-            color: Colors.blue,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Score: $score",
+              style: const TextStyle(fontSize: 24),
+            ),
+
+            const SizedBox(height: 20),
+
+            GestureDetector(
+              onTap:(){
+                setState(() {
+                  score++;
+                });
+              } ,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.blue,
+              ),
+            ),
+          ],
         ),
       ),
+
     );
   }
 }
