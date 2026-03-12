@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main(){
   runApp(MyApp());
@@ -52,6 +53,10 @@ class _GameScreenState extends State<GameScreen> {
               onTap:() {
                 setState(() {
                   score++;
+
+                  final random = Random();
+                  boxX = random.nextDouble() * 300;
+                  boxY = random.nextDouble() * 500;
                 });
               },
               child: Container(
