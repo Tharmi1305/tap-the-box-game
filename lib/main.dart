@@ -28,8 +28,9 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
 
   int score = 0;
-  double boxX=0;
-  double boxY=0;
+  double boxX=100;
+  double boxY=100;
+  int timeLeft=30;
 
 
   @override
@@ -47,6 +48,15 @@ class _GameScreenState extends State<GameScreen> {
           ),
 
           Positioned(
+            top: 90,
+            left: 20,
+            child: Text(
+              "Time: $timeLeft",
+              style: const TextStyle(fontSize: 24),
+            ),
+          ),
+
+          Positioned(
             top: boxX,
             left: boxY,
             child: GestureDetector(
@@ -55,8 +65,8 @@ class _GameScreenState extends State<GameScreen> {
                   score++;
 
                   final random = Random();
-                  boxX = random.nextDouble() * 300;
-                  boxY = random.nextDouble() * 300;
+                  boxX = random.nextDouble() * 500;
+                  boxY = random.nextDouble() * 500;
                 });
               },
               child: Container(
