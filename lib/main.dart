@@ -29,9 +29,15 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
 
   int score = 0;
-  double boxX=100;
-  double boxY=100;
+  double boxX=150;
+  double boxY=150;
   int timeLeft=30;
+
+  @override
+  void initState(){
+    super.initState();
+    startTimer();
+  }
 
   void startTimer(){
     Timer.periodic(const Duration(seconds:1), (timer){
@@ -75,7 +81,7 @@ class _GameScreenState extends State<GameScreen> {
                   score++;
 
                   final random = Random();
-                  boxX = random.nextDouble() * 500;
+                  boxX = random.nextDouble() * 300;
                   boxY = random.nextDouble() * 500;
                 });
               },
