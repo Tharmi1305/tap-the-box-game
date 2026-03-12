@@ -47,8 +47,8 @@ class _GameScreenState extends State<GameScreen> {
           ),
 
           Positioned(
-            top: 200,
-            left: 150,
+            top: boxX,
+            left: boxY,
             child: GestureDetector(
               onTap:() {
                 setState(() {
@@ -56,7 +56,7 @@ class _GameScreenState extends State<GameScreen> {
 
                   final random = Random();
                   boxX = random.nextDouble() * 300;
-                  boxY = random.nextDouble() * 500;
+                  boxY = random.nextDouble() * 300;
                 });
               },
               child: Container(
