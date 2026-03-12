@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:async';
 
 void main(){
   runApp(MyApp());
@@ -32,6 +33,15 @@ class _GameScreenState extends State<GameScreen> {
   double boxY=100;
   int timeLeft=30;
 
+  void startTimer(){
+    Timer.periodic(const Duration(seconds:1), (timer){
+      setState(() {
+        if (timeLeft > 0){
+          timeLeft--;
+        }
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
