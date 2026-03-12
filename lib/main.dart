@@ -27,37 +27,42 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
 
   int score = 0;
+  double boxX=0;
+  double boxY=0;
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Score: $score",
+      body: Stack(
+        children: [
+          Positioned(
+            top: 50,
+            left: 20,
+            child: Text(
+              "Score : $score",
               style: const TextStyle(fontSize: 24),
             ),
+          ),
 
-            const SizedBox(height: 20),
-
-            GestureDetector(
-              onTap:(){
+          Positioned(
+            top: 200,
+            left: 150,
+            child: GestureDetector(
+              onTap:() {
                 setState(() {
                   score++;
                 });
-              } ,
+              },
               child: Container(
                 width: 100,
                 height: 100,
                 color: Colors.blue,
               ),
             ),
-          ],
-        ),
-      ),
-
+          )
+        ],
+      )
     );
   }
 }
