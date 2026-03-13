@@ -44,6 +44,8 @@ class _GameScreenState extends State<GameScreen> {
       setState(() {
         if (timeLeft > 0){
           timeLeft--;
+        } else{
+          timer.cancel();
         }
       });
     });
@@ -73,8 +75,8 @@ class _GameScreenState extends State<GameScreen> {
           ),
 
           Positioned(
-            top: boxX,
-            left: boxY,
+            top: boxY,
+            left: boxX,
             child: GestureDetector(
               onTap:() {
                 setState(() {
@@ -91,7 +93,17 @@ class _GameScreenState extends State<GameScreen> {
                 color: Colors.blue,
               ),
             ),
-          )
+          ),
+
+          if (timeLeft == 0)
+            const Center(
+              child: Text("Game Over",
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),),
+            ),
         ],
       )
     );
