@@ -51,6 +51,16 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
+  void restartGame(){
+    setState(() {
+      score=0;
+      timeLeft=30;
+      boxX=150;
+      boxY=150;
+    });
+    startTimer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,13 +106,25 @@ class _GameScreenState extends State<GameScreen> {
           ),
 
           if (timeLeft == 0)
-            const Center(
-              child: Text("Game Over",
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.red,
-              ),),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Game Over",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: restartGame,
+                    child: const Text("Restart Game"),
+                  ),
+                ],
+              ),
             ),
         ],
       )
